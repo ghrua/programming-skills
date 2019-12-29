@@ -24,3 +24,10 @@ To prepare data for `fast_align`, you should run the following two commands:
 paste file1.txt file2.txt -d $"\t" > file.merge.back  # make sure that tab is not contained in the files
 sed 's/\t/ ||| /g'  file.merge.back >  file.merge
 ```
+&#x1F3B9; **Print Specific Line from Huge Text File**
+
+```shell
+sed 'Nq;d' file.txt
+```
+
+[Reference](https://stackoverflow.com/a/14709477/5793660)
