@@ -31,3 +31,47 @@ sed 'Nq;d' file.txt
 ```
 
 [Reference](https://stackoverflow.com/a/14709477/5793660)
+
+
+&#x1F3B9; **Reverse Lines' Words**
+
+python script:
+
+```python
+import argparse
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input")
+    return parser.parse_args()
+
+
+def main(args):
+    with open(args.input) as fin:
+        for line in fin:
+            print(" ".join(line.strip().split()[::-1]))
+
+
+if __name__ == "__main__":
+    main(parse_args())
+
+```
+
+example:
+```shell
+input.txt:
+a b
+c d
+
+output.txt:
+b a
+d c
+```
+
+&#x1F3B9; **Reverse Lines**
+
+```shell
+tac a.txt > b.txt
+```
+
