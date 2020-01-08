@@ -75,3 +75,11 @@ d c
 tac a.txt > b.txt
 ```
 
+&#x1F3B9; **Delete Files by Regex**
+
+[Reference](https://superuser.com/a/392896/1119261)
+
+```shell
+find . -name 'wmt18.de-en.de.tk.len.term.[0-9]' -delete
+```
+
