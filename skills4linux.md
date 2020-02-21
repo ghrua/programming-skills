@@ -26,6 +26,7 @@ sed 's/\t/ ||| /g'  file.merge.back >  file.merge
 ```
 &#x1F3B9; **Print Specific Line from Huge Text File**
 
+
 ```shell
 sed 'Nq;d' file.txt
 ```
@@ -83,3 +84,6 @@ tac a.txt > b.txt
 find . -name 'wmt18.de-en.de.tk.len.term.[0-9]' -delete
 ```
 
+&#x1F3B9; **Contab**
+
+[user mannul](https://crontab.guru/every-10-minutes)
