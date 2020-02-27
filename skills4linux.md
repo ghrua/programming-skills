@@ -87,3 +87,13 @@ find . -name 'wmt18.de-en.de.tk.len.term.[0-9]' -delete
 &#x1F3B9; **Contab**
 
 [user mannul](https://crontab.guru/every-10-minutes)
+
+
+&#x1F3B9; **System File Encoding**
+
+```
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+```
+
