@@ -97,3 +97,12 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 ```
 
+&#x1F3B9; **Randomly Select N Lines from A File**
+
+```
+shuf -n 1 $FILE
+```
+
+[reference](https://stackoverflow.com/a/448127)
+
+
