@@ -134,3 +134,21 @@ make
 sudo make install
 cd ..
 ```
+
+
+&#x1F3B9; **Slicing A String**
+
+```bash
+echo "STRING" | cut -cN-M
+```
+where `N` and `M` are the start index and end index respectively.
+
+[reference](https://stackabuse.com/substrings-in-bash/)
+
+&#x1F3B9; **Storing Output To A Variable**
+
+```
+var=$(command-name-here)
+```
+
+[reference](https://www.cyberciti.biz/faq/unix-linux-bsd-appleosx-bash-assign-variable-command-output/)
