@@ -17,3 +17,14 @@ set expandtab
 ```vim
 c-w =
 ```
+
+&#x1F3B9; **Put The Cursor in The Line Last Time You Closed The File**
+
+add the below code to `.vimrc`
+```vim
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+```
+
+[reference](https://askubuntu.com/a/202077/620511)
