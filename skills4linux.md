@@ -152,3 +152,17 @@ var=$(command-name-here)
 ```
 
 [reference](https://www.cyberciti.biz/faq/unix-linux-bsd-appleosx-bash-assign-variable-command-output/)
+
+
+&#x1F3B9; **Remove Files by Pattern**
+
+```python
+import os                                                                                                                                             
+
+for root, dirnames, filenames in os.walk('./tmp'): 
+    for f in filenames: 
+        if "best" in f: 
+            continue 
+        else: 
+            os.remove(os.path.join(root, f)) 
+```
