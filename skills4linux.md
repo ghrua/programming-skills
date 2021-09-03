@@ -166,3 +166,25 @@ for root, dirnames, filenames in os.walk('./tmp'):
         else: 
             os.remove(os.path.join(root, f)) 
 ```
+
+&#x1F3B9; ** Iterate through Files Sorted by Data **
+
+```
+for CKPT in `ls -rt $TEXT/checkpoint_*.pt`
+do
+    ...
+done
+```
+
+&#x1F3B9; ** Get File Name From Path **
+
+```
+FILE="/home/vivek/lighttpd.tar.gz"
+echo ${FILE##*/}
+## another example ##
+url="https://www.cyberciti.biz/files/mastering-vi-vim.pdf"
+echo "${url##*/}"
+```
+[reference](https://www.cyberciti.biz/faq/bash-get-basename-of-filename-or-directory-name/)
+
+
