@@ -188,3 +188,12 @@ echo "${url##*/}"
 [reference](https://www.cyberciti.biz/faq/bash-get-basename-of-filename-or-directory-name/)
 
 
+&#x1F3B9; ** Iterate through Content in A File **
+
+```
+while read CKPT
+do
+    echo $CKPT
+    ...
+done < $TEXT/ckpt.txt
+```
