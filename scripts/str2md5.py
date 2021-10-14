@@ -27,7 +27,7 @@ def get_corpus_line_md5(str):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print(sys.stderr, "usage: python fanyijun_md5_single.py input_file output_file")
+        print(sys.stderr, "usage: python str2md5.py input_file output_file")
         exit()
     file_name = os.path.basename(sys.argv[1])
     ext = os.path.splitext(sys.argv[1])[1]
