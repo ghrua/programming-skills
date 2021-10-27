@@ -27,3 +27,34 @@ subword-nmt apply-bpe -c code.32k < newstest2013.de > newstest2013.bpe32k.de
 subword-nmt apply-bpe -c code.32k < newstest2014.en > newstest2014.bpe32k.en
 subword-nmt apply-bpe -c code.32k < newstest2014.de > newstest2014.bpe32k.de
 ```
+
+&#x1F3B9; **Convert SGM to Txt**
+
+Remember to install bs4 in advance.
+
+```python
+import argparse
+from bs4 import BeautifulSoup
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--sgm", type=str)
+    parser.add_argument("--txt", type=str)
+    return parser.parse_args()
+
+
+def main(args):
+    with open(args.sgm) as fsgm, open(args.txt, 'w') as ftxt:
+        sgm_str = fsgm.read()
+        sp = BeautifulSoup(sgm_str, features="html.parser")
+        txt_str = sp.get_text()
+        for it in txt_str.split("\n"):
+            if not it:
+                continue
+            ftxt.write(it + '\n')
+        
+
+if __name__ == "__main__":
+    main(parse_args())
+```
