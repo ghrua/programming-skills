@@ -167,7 +167,7 @@ for root, dirnames, filenames in os.walk('./tmp'):
             os.remove(os.path.join(root, f)) 
 ```
 
-&#x1F3B9; ** Iterate through Files Sorted by Data **
+&#x1F3B9; **Iterate through Files Sorted by Data**
 
 ```
 for CKPT in `ls -rt $TEXT/checkpoint_*.pt`
@@ -176,7 +176,7 @@ do
 done
 ```
 
-&#x1F3B9; ** Get File Name From Path **
+&#x1F3B9; **Get File Name From Path**
 
 ```
 FILE="/home/vivek/lighttpd.tar.gz"
@@ -188,7 +188,7 @@ echo "${url##*/}"
 [reference](https://www.cyberciti.biz/faq/bash-get-basename-of-filename-or-directory-name/)
 
 
-&#x1F3B9; ** Iterate through Content in A File **
+&#x1F3B9; **Iterate through Content in A File**
 
 ```
 while read CKPT
@@ -197,3 +197,11 @@ do
     ...
 done < $TEXT/ckpt.txt
 ```
+
+&#x1F3B9; **Add String at The End of Each Line**
+
+```
+sed -e 's/$/string after each line/' $F1 > $F2
+```
+[reference](https://stackoverflow.com/a/2869736/5793660)
+
