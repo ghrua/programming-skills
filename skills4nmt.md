@@ -39,7 +39,7 @@ subword-nmt apply-bpe -c code.32k < newstest2014.de > newstest2014.bpe32k.de
 # 4. BPE with a pretrianed model
 # 5. Split of train dev test
 
-DEST=/mnt/task_wrapper/user_output/artifacts/
+DEST=/home/XXX
 FIN=$DEST/data/newscrawl_wmt19/news.2019.en.shuffled.deduped
 BPECODES=$DEST/data/newscrawl_wmt19/bpecodes
 LANG=en
