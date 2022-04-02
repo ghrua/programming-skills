@@ -28,6 +28,41 @@ subword-nmt apply-bpe -c code.32k < newstest2014.en > newstest2014.bpe32k.en
 subword-nmt apply-bpe -c code.32k < newstest2014.de > newstest2014.bpe32k.de
 ```
 
+&#x1F3B9; **Quickly Prepare WMT19 Language Model**
+
+```
+# Following Facebook FAIR’s WMT19 News Translation Task Submission,
+# we process the newscrawl dataset of English in 4-steps:
+# 1. Filtering out sentences with wrong language id. (Fasttext on raw data: https://github.com/facebookresearch/fastText/issues/495#issuecomment-384689827)
+# 2. Normalization by moses
+# 3. Tokenization by moses
+# 4. BPE with a pretrianed model
+# 5. Split of train dev test
+
+DEST=/mnt/task_wrapper/user_output/artifacts/
+FIN=$DEST/data/newscrawl_wmt19/news.2019.en.shuffled.deduped
+BPECODES=$DEST/data/newscrawl_wmt19/bpecodes
+LANG=en
+
+python lang_filter.py --input_file $FIN \
+                   --output_file $FIN.langid \
+                   --model_path $DEST/data/newscrawl_wmt19/lid.176.bin \
+                   --expected_lang $LANG
+
+perl moses-scripts/scripts/tokenizer/normalize-punctuation.perl -l $LANG < $FIN.langid > $FIN.langid.norm
+perl moses-scripts/scripts/tokenizer/tokenizer.perl -l $LANG -threads 16 < $FIN.langid.norm > $FIN.langid.norm.tok
+
+python fast_bpe.py --input_file $FIN.langid.norm.tok \
+                   --output_file $FIN.langid.norm.tok.bpe \
+                   --codes_path $DEST/wmt19.en/bpecodes \
+                   --vocab_path $DEST/wmt19.en/dict.txt
+
+perl moses-scripts/scripts/tokenizer/remove-non-printing-char.perl < $FIN.langid.norm.tok.bpe > $FIN.langid.norm.tok.bpe.print
+                   
+python split.py --input_file $FIN.langid.norm.tok.bpe.print \
+                   --output_dir ./split \
+```
+
 &#x1F3B9; **Convert SGM to Txt**
 
 Remember to install bs4 in advance.
