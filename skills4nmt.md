@@ -51,15 +51,15 @@ python lang_filter.py --input_file $FIN \
 
 perl moses-scripts/scripts/tokenizer/normalize-punctuation.perl -l $LANG < $FIN.langid > $FIN.langid.norm
 perl moses-scripts/scripts/tokenizer/tokenizer.perl -l $LANG -threads 16 < $FIN.langid.norm > $FIN.langid.norm.tok
+perl moses-scripts/scripts/tokenizer/remove-non-printing-char.perl < $FIN.langid.norm.tok > $FIN.langid.norm.tok.print
 
-python fast_bpe.py --input_file $FIN.langid.norm.tok \
-                   --output_file $FIN.langid.norm.tok.bpe \
+python fast_bpe.py --input_file $FIN.langid.norm.tok.print \
+                   --output_file $FIN.langid.norm.tok.print.bpe \
                    --codes_path $DEST/wmt19.en/bpecodes \
                    --vocab_path $DEST/wmt19.en/dict.txt
 
-perl moses-scripts/scripts/tokenizer/remove-non-printing-char.perl < $FIN.langid.norm.tok.bpe > $FIN.langid.norm.tok.bpe.print
                    
-python split.py --input_file $FIN.langid.norm.tok.bpe.print \
+python split.py --input_file $FIN.langid.norm.tok.print.bpe \
                    --output_dir ./split \
 ```
 
