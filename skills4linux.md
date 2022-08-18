@@ -24,6 +24,23 @@ To prepare data for `fast_align`, you should run the following two commands:
 paste file1.txt file2.txt -d $"\t" > file.merge.back  # make sure that tab is not contained in the files
 sed 's/\t/ ||| /g'  file.merge.back >  file.merge
 ```
+
+&#x1F3B9; **Split Text File by Column**
+
+If each line is split by '\t':
+```shell
+NC=7
+cut -f$NC filename
+```
+
+Otherwise, use `awk`
+
+```shell
+awk -F'\t' '{ print ${NC} }'
+```
+
+[Reference](https://stackoverflow.com/a/13795587)
+
 &#x1F3B9; **Print Specific Line from Huge Text File**
 
 
